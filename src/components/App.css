@@ -1,0 +1,105 @@
+body {
+    font-family: 'Fjalla One', sans-serif;
+    background-color: rgb(0,155,214);
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.chaboo {
+    align-self: center;
+    transform: rotate(-5deg);
+    transition: all;
+    transition-duration: .1s;
+    color: white;
+}
+
+.chaboo:hover {
+    transform: rotate(5deg)
+}
+
+h1 {
+    font-size: 200px;
+    font-weight: 500;
+    margin: 0
+}
+
+/* .catchphrase {
+    font-size: 50px;
+    color: gray;
+    align-self: center;
+} */
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: blueviolet; */
+}
+
+button {
+    /* background-color: green; */
+    font-size: 20px;
+    color: white;
+    height: 80px;
+    width: 150px;
+    border: 0;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+button:hover {
+    font-weight: 600;
+}
+
+#guessed {
+    background-color: green;
+}
+
+#pass {
+    background-color: red;
+}
+
+#card {
+    width: 400px;
+    height: 600px;
+    background-color: white ;
+    border-radius: 10px;
+}
+
+
+footer {
+    display: flex;
+    font-size: 30px;
+    color: gray;
+    text-align: center;
+    justify-content: center;
+}
+
+footer a {
+    margin: 40px;
+    position: absolute;
+    bottom: 0;
+    width: auto;
+    padding: 0;
+    text-decoration: none;
+}
+  
+footer a:hover {
+    font-weight: 600;
+    cursor: default;
+}
+
+footer a:visited {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}

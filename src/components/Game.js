@@ -1,19 +1,48 @@
 import React, { Component } from "react";
 import css from './App.css';
+import Card from './Card.js'
 
 class Game extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      score: 0,
+      // activeWord: null,
+      // stipulations: []
+    }
+  }
 
     componentDidMount() {
-        console.log('game mounted')
+      // console.log('game mounted');
+      fetch('/api')
+        .then(res => res.json())
+        .then(result => {
+          // console.log(result)
+          const word = result[Math.floor(Math.random() * result.length)]
+          // console.log(word)
+          return this.setState({
+            activeWord: word.action,
+            stipulations: word.stip
+          })
+        })
+        // .then(res => console.log(this.state))
     }
+
+
+
 
   render() {
     return (
       <div className="game">
-        <div>Score: </div>
+        <p id='score'>Score: {this.state.score}</p>
         <button id='guessed'>Guessed!</button>
         {/* <div>Hello world!</div> */}
-        <div id='card'> Card Placeholder</div>
+        {/* <div id='card'> Card Placeholder</div> */}
+        <Card 
+          word = {this.state.activeWord}
+          stipulations = {this.state.stipulations}
+        />
         <button id='pass'>Pass!</button>
       </div>
     )

@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-top: 100px;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
 .chaboo {
@@ -33,36 +33,45 @@ h1 {
     margin: 0
 }
 
-/* .catchphrase {
-    font-size: 50px;
-    color: gray;
-    align-self: center;
-} */
+h2 {
+    padding-top: 30px;
+    font-size: 60px
+}
+
+h3 {
+    font-size: 30px;
+}
 
 .game {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: blueviolet; */
+}
+
+#score {
+    color: white;
+    font-size: 25px;
+    margin: 0;
 }
 
 button {
-    /* background-color: green; */
-    font-size: 20px;
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 30px;
     color: white;
     height: 80px;
     width: 150px;
     border: 0;
     border-radius: 10px;
-    margin: 20px;
+    margin: 30px;
 }
 
 button:hover {
-    font-weight: 600;
+    /* font-weight: 900; */
+    box-shadow: rgb(255, 255, 255) 0px 0px 30px;
 }
 
 #guessed {
-    background-color: green;
+    background-color: rgb(51, 178, 73);
 }
 
 #pass {
@@ -74,13 +83,16 @@ button:hover {
     height: 600px;
     background-color: white ;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 10px 10px 15px;
 }
-
 
 footer {
     display: flex;
     font-size: 30px;
-    color: gray;
+    /* color: gray; */
     text-align: center;
     justify-content: center;
 }
@@ -101,5 +113,5 @@ footer a:hover {
 
 footer a:visited {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }

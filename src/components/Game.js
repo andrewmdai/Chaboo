@@ -12,8 +12,10 @@ class Game extends Component {
     this.state = {
       score: 0,
       activeWord: null,
-      stipulations: []
-
+      stipulations: [],
+      counter: 60,
+      gameOver: false,
+      howTo: false
     }
   }
   testFunction() {
@@ -21,7 +23,12 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    this.fetchData()
+    this.fetchData();
+    this.startTimer();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   fetchData() {
@@ -36,32 +43,25 @@ class Game extends Component {
       })
   }
 
-  // function App() {
-  //   const [counter, setCounter] = React.useState(60);
-  
-  //   // Third Attempts
-  //   React.useEffect(() => {
-  //     const timer =
-  //       counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-  //     return () => clearInterval(timer);
-  //   }, [counter]);
-  
-  //   return (
-  //     <div className="App">
-  //       <div>Countdown: {counter}</div>
-  //     </div>
-  //   );
-  // }
-
+  startTimer() {
+    this.timer = setInterval(() => {
+      this.setState(prevState => ({
+        counter: prevState.counter - 1
+      }), () => {
+        if (this.state.counter === 0) {
+          clearInterval(this.timer);
+          this.setState({gameOver: true})
+        }
+      });
+    }, 1000);
+  }
 
   render() {
+    const { score, activeWord, stipulations, counter, gameOver, howTo } = this.state;
+
     return (
       <div className="game">
-
-        {/* <div>
-          <div>Countdown: {counter}</div>
-        </div> */}
-
+        <div id='timer'>Timer: {counter}</div>
         <p id='score'>Score: {this.state.score}</p>
         <button id='guessed' onClick={() => {
           this.fetchData();
@@ -74,6 +74,34 @@ class Game extends Component {
         <button id='pass' onClick={() => {
           this.fetchData();
         }}>Pass!</button>
+        <footer>
+          <button id='howto' onClick={() => this.setState({howTo: true})}>how to play</button>
+        </footer>
+
+        {gameOver && (
+          <div className='modal'>
+            <div className='modalContent'>
+              <h4>Time's Up!</h4>
+              <p>Score: {score}</p>
+              <button id='again' onClick={() => {
+                window.location.reload(false)
+              }}>Again!</button>
+            </div>
+          </div>
+        )}
+
+
+      {howTo && (
+          <div className='howToModal'>
+            <div className='howToContent'>
+              <p>Play over Zoom or Facetime!</p>
+              <p>Act out the word on the top of the card</p>
+              <p>You are not allowed to act out any actions in red</p>
+              <button id='howToClose' onClick={() => this.setState({howTo: false})}>close</button>
+            </div>
+          </div>
+        )}
+
       </div>
     )
   }

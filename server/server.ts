@@ -3,6 +3,7 @@ import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'e
 // import mongoose from 'mongoose';
 import axios from 'axios';
 import 'dotenv/config';
+import cors from 'cors';
 
 const app = express();
 const PORT = 3000;
@@ -10,6 +11,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.static(path.resolve(__dirname, '../dist')));
+app.use(cors());
 
 app.get('/api', (req, res) => {
   var data = JSON.stringify({
@@ -36,6 +38,7 @@ app.get('/api', (req, res) => {
     })
     .catch(function (error) {
       console.log(error);
+      res.status(500).send({ error: 'An error occurred while fetching data from the API' });
     });
 });
 

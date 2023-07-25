@@ -1,10 +1,12 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './client/index.tsx',
+  entry: path.resolve(__dirname, './client/index.tsx'),
+  mode: 'production',
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
   },
 
@@ -27,17 +29,20 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: './client/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
     }),
   ],
   resolve: {
@@ -54,6 +59,14 @@ module.exports = {
     proxy: {
       '/': {
         target: 'http://localhost:3000/',
+      },
+      '/api': {
+        target: 'http://localhost:3000', // Replace this with the backend server URL
+        secure: false, // Set to false if your backend server doesn't have HTTPS
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '', // Rewrite the path to remove '/api' before sending the request
+        },
       },
     },
   },

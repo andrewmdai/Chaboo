@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Card from './Card';
 import TinderCard from 'react-tinder-card';
 import { useState, useEffect } from 'react';
 
-const Game: FC = () => {
+const Game = () => {
   const timeLimit = 60;
   const [score, setScore] = useState(0);
   const [counter, setCounter] = useState(timeLimit);
@@ -14,7 +14,7 @@ const Game: FC = () => {
   const [wordList, setWordList] = useState([]);
 
   // Get all words from database
-  const randomizeArray = (array: any[]) => {
+  const randomizeArray = array => {
     array.sort((a, b) => {
       return Math.random() - 0.5;
     });
@@ -34,7 +34,7 @@ const Game: FC = () => {
   }, []);
 
   // Swiping feature
-  const swiped = (direction: string, nameToDelete: string) => {
+  const swiped = (direction, nameToDelete) => {
     console.log('removing: ' + nameToDelete);
     if (direction === 'right') {
       setScore(score + 1);

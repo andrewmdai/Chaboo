@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
 
-const Hero:FC = () => {
+const Hero = () => {
   return (
     <div className='hero'>
       <h1 className='chaboo' onClick={() => {
-        //  window.location = 'https://www.quell.dev/';
+        //  window.location = 'https://www.chaboo.onrender.com/';
       }}>chaboo!</h1>
     </div>
   );

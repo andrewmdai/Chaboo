@@ -3,8 +3,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, "./client/index.tsx"),
-  mode: "production",
+  entry: path.resolve(__dirname, './client/index.tsx'),
+  mode: 'production',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
@@ -61,7 +61,12 @@ module.exports = {
         target: 'http://localhost:3000/',
       },
       '/api': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:3000', // Replace this with the backend server URL
+        secure: false, // Set to false if your backend server doesn't have HTTPS
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '', // Rewrite the path to remove '/api' before sending the request
+        },
       },
     },
   },

@@ -27,7 +27,7 @@ app.use('/api', (req, res) => {
     headers: {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
-      'api-key': 'process.env.MONGO_API',
+      'api-key': process.env.MONGO_API,
     },
     data: data,
   };

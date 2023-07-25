@@ -13,7 +13,7 @@ app.use(express.urlencoded());
 app.use(express.static(path.resolve(__dirname, '../dist')));
 app.use(cors());
 
-app.get('/api', (req, res) => {
+app.use('/api', (req, res) => {
   console.log('in api')
   var data = JSON.stringify({
     collection: 'chabooWords',

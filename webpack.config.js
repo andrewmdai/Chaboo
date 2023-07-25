@@ -2,17 +2,11 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
-
-  plugins: [
-    new HTMLWebpackPlugin({
-      template: './client/index.html',
-    }),
-  ],
 
   module: {
     rules: [
@@ -41,12 +35,22 @@ module.exports = {
       },
     ],
   },
-
+  plugins: [
+    new HTMLWebpackPlugin({
+      template: './client/index.html',
+    }),
+  ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   devServer: {
-    static: {
-      publicPath: '/dist',
-      directory: path.resolve(__dirname, 'dist'),
-    },
+    hot: true,
+    open: true,
+    historyApiFallback: true,
+    // static: {
+    //   publicPath: '/dist',
+    //   directory: path.resolve(__dirname, 'dist'),
+    // },
     proxy: {
       '/': {
         target: 'http://localhost:3000/',

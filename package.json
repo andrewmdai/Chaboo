@@ -2,10 +2,10 @@
   "name": "undrawable",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
-    "server": "nodemon server/server.js",
-    "dev": "webpack-dev-server --mode development --open --hot & nodemon server/server.js",
+    "server": "nodemon server/server.ts",
+    "dev": "webpack-dev-server --mode development --open --hot & nodemon server/server.ts",
     "build": "webpack --mode -production"
   },
   "keywords": [],

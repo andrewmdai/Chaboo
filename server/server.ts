@@ -1,10 +1,10 @@
-const path = require('path');
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-require('dotenv').config();
+import path from 'path';
+import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
+import mongoose from 'mongoose';
+import axios from 'axios';
+import 'dotenv/config';
 
-var axios = require('axios');
+const app = express();
 const PORT = 3000;
 
 app.use(express.json());
@@ -46,7 +46,7 @@ app.get('/', (req, res) =>
 // Catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.sendStatus(404));
 
-app.use((err, req, res, next) => {
+app.use((err: ErrorRequestHandler, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,

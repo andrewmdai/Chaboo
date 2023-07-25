@@ -22,7 +22,7 @@ app.get('/api', (req, res) => {
   });
 
   var config = {
-    method: 'post',
+    method: 'get',
     url: 'https://us-east-2.aws.data.mongodb-api.com/app/data-rlror/endpoint/data/v1/action/find',
     headers: {
       'Content-Type': 'application/json',

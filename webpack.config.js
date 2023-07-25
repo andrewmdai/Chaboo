@@ -1,17 +1,17 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './client/index.js',
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
 
   plugins: [
-    new HTMLWebpackPlugin ({ 
-        template: './src/index.html'
-    })
+    new HTMLWebpackPlugin({
+      template: './client/index.html',
+    }),
   ],
 
   module: {
@@ -22,26 +22,35 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
-    ]
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
 
   devServer: {
     static: {
-      publicPath: '/build',
-      directory: path.resolve(__dirname, 'build'),
+      publicPath: '/dist',
+      directory: path.resolve(__dirname, 'dist'),
     },
     proxy: {
       '/': {
-        target: 'http://localhost:3000/'
-      }
-    }
-  }  
-}
+        target: 'http://localhost:3000/',
+      },
+    },
+  },
+};

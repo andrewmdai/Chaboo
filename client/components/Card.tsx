@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = props => {
+const Card = (props: any) => {
   return (
     <div id='card'>
       <h2 className='action'>{props.word}</h2>

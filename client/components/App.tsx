@@ -1,8 +1,8 @@
-import React from 'react';
-import Hero from './Hero.js';
-import Game from './Game.js';
+import React, { FC } from 'react';
+import Hero from './Hero';
+import Game from './Game';
 
-const App = () => {
+const App: FC = () => {
   return (
     <div className='app'>
       <Hero />

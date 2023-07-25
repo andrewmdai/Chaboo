@@ -1,6 +1,6 @@
 import path from 'path';
 import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 import axios from 'axios';
 import 'dotenv/config';
 

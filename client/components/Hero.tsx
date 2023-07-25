@@ -1,11 +1,17 @@
 import React, { FC } from 'react';
 
-const Hero:FC = () => {
+const Hero = () => {
   return (
     <div className='hero'>
-      <h1 className='chaboo' onClick={() => {
-        //  window.location = 'https://www.quell.dev/';
-      }}>chaboo!</h1>
+      <h1
+        className='chaboo'
+        onClick={() => {
+          const win: Window = window;
+          win.location = 'https://chaboo.onrender.com';
+        }}
+      >
+        chaboo!
+      </h1>
     </div>
   );
 };

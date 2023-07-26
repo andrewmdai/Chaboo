@@ -3,13 +3,16 @@ import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'e
 import mongoose from 'mongoose';
 import axios from 'axios';
 import 'dotenv/config';
+import cors from 'cors';
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(express.static(path.resolve(__dirname, '../client')));
+// app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, '../dist/client')));
+app.use(cors());
 
 app.get('/api', (req, res) => {
   var data = JSON.stringify({
@@ -40,7 +43,8 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/', (req, res) =>
-  res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')),
+  // res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')),
+  res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html')),
 );
 
 // Catch-all route handler for any requests to an unknown route
@@ -60,4 +64,5 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
-module.exports = app;
+// module.exports = app;
+export default app;

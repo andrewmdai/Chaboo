@@ -4,7 +4,8 @@ const Hero = () => {
   return (
     <div className='hero'>
       <h1 className='chaboo' onClick={() => {
-        //  window.location = 'https://www.chaboo.onrender.com/';
+        const win: Window = window;
+         win.location = 'https://www.chaboo.onrender.com/';
       }}>chaboo!</h1>
     </div>
   );

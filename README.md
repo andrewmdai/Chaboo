@@ -15,3 +15,6 @@ Potential Future Features:
 - Categories: Select a category of clues
 - Mobile App: Fully downloadable app
 - Monitor Mode: Having opposing player in the same lobby to monitor taboo actions
+
+https://github.com/andrewmdai/Chaboo/assets/126610812/6d582cbd-60fa-4317-b954-4530ddeefc9b
+

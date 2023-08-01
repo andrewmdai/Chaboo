@@ -9,6 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   },
+  "include": ["client/**/*", "server/**/*"],
   "exclude": ["node_modules", "dist"],
   "types": ["react/next", "react-dom/next"]
 }

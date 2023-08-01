@@ -127,7 +127,7 @@ const Game = () => {
             <p>Act out the word on the top of the card</p>
             <p>You are not allowed to act out any actions in red</p>
             <p>Swipe right if your team guesses correctly</p>
-            <p>Swipe left if you want to pas the current clue</p>
+            <p>Swipe left if you want to pass the current clue</p>
             <p>Try to get your team to guess as many clues as possible!</p>
             <button id='howToClose' onClick={() => setHowTo(false)}>
               close

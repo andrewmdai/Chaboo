@@ -10,7 +10,8 @@ const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded());
-app.use(express.static(path.resolve(__dirname, '../dist')));
+// app.use(express.static(path.resolve(__dirname, '../client')));
+app.use(express.static(path.resolve(__dirname, '../dist/client')));
 app.use(cors());
 
 app.use('/api', (req, res) => {
@@ -44,6 +45,7 @@ app.use('/api', (req, res) => {
 });
 
 app.get('/', (req, res) =>
+  // res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')),
   res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html')),
 );
 
@@ -64,4 +66,5 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
-module.exports = app;
+// module.exports = app;
+export default app;

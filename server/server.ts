@@ -14,7 +14,8 @@ app.use(express.urlencoded());
 app.use(express.static(path.resolve(__dirname, '../dist/client')));
 app.use(cors());
 
-app.get('/api', (req, res) => {
+app.use('/api', (req, res) => {
+  console.log('in api')
   var data = JSON.stringify({
     collection: 'chabooWords',
     database: 'chaboo',
@@ -22,7 +23,7 @@ app.get('/api', (req, res) => {
   });
 
   var config = {
-    method: 'post',
+    method: 'get',
     url: 'https://us-east-2.aws.data.mongodb-api.com/app/data-rlror/endpoint/data/v1/action/find',
     headers: {
       'Content-Type': 'application/json',
@@ -39,6 +40,7 @@ app.get('/api', (req, res) => {
     })
     .catch(function (error) {
       console.log(error);
+      res.status(500).send({ error: 'An error occurred while fetching data from the API' });
     });
 });
 

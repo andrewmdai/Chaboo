@@ -10,8 +10,8 @@ const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded());
-// app.use(express.static(path.resolve(__dirname, '../client')));
-app.use(express.static(path.resolve(__dirname, '../dist/client')));
+// app.use(express.static(path.resolve(__dirname, '../client'))); // Development
+app.use(express.static(path.resolve(__dirname, '../'))); 
 app.use(cors());
 
 app.get('/api', (req, res) => {
@@ -43,8 +43,8 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/', (req, res) =>
-  // res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')),
-  res.status(200).sendFile(path.resolve(__dirname, '../dist/index.html')),
+  // res.status(200).sendFile(path.resolve(__dirname, '../client/index.html')), // Development
+  res.status(200).sendFile(path.resolve(__dirname, '../index.html')), // Production
 );
 
 // Catch-all route handler for any requests to an unknown route

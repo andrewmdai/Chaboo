@@ -1,214 +1,80 @@
-body {
-  font-family: 'Fjalla One', sans-serif;
-  background-color: rgb(0, 155, 214);
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  max-height: 100%;
-  max-width: 100%;
-  margin: 0;
+* {
   padding: 0;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.chaboo {
-  align-self: center;
-  transform: rotate(-5deg);
-  transition: all;
-  transition-duration: 0.1s;
-  color: white;
-}
-
-.chaboo:hover {
-  transform: rotate(5deg);
-  cursor: default;
-}
-
-h1 {
-  font-size: 10em;
-  font-weight: 500;
   margin: 0;
-  padding-top: 5vh;
+  background-color: rgb(18, 30, 53);
 }
 
-h2 {
-  padding-top: 20px;
-  font-size: 55px;
+#sidebar {
+  position: fixed;
+  height: 100vw;
 }
 
-h3 {
-  font-size: 30px;
-  color: rgb(255, 0, 0);
+.sidecontent {
+  margin-top: 10vw;
+  margin-left: 10vw;
+  margin-bottom: 10vw;
 }
 
-.game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
+#content {
+  margin-left: 45vw;
+  padding-top: 10vw;
+  padding-left: 5vw;
+  padding-right: 10vw;
+  background-color: rgb(31, 31, 31);
 }
 
-#score,
-#timer {
-  color: white;
-  font-size: 25px;
-  margin: 0;
+.intro {
+  font-weight: 200 !important;
 }
 
-#start,
-#howto,
-#howToClose,
-#again {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 24px;
-  color: white;
-  height: 60px;
-  width: 150px;
-  border: 0;
-  border-radius: 10px;
-  margin: 30px;
-  transition-duration: 0.5s;
+.socials {
+  position: fixed;
+  bottom: 50px;
 }
 
-#start:hover,
-#howto:hover,
-#howToClose:hover,
-#again:hover {
-  box-shadow: rgb(249, 249, 249) 0px 0px 20px;
-  transform: scale(1.1);
-}
-
-#start {
-  background-color: rgb(0, 119, 182);
-}
-
-#howto {
-  background-color: rgb(0, 119, 182);
-}
-
-#howToClose {
-    background-color: red;
-  }
-
-#again {
-  background-color: rgb(51, 178, 73);
-}
-
-#card {
-  width: 400px;
-  height: 600px;
-  background-color: rgb(250, 250, 250);
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.socialsicon {
   transition-duration: 0.25s;
-  margin: 40px;
-  text-align: center;
 }
 
-#card:hover {
-  transform: rotate(-1deg) scale(1.05);
+.socialsicon:hover {
+  color: #dedee5 !important;
+  scale: 110%;
 }
 
-.modal {
-  text-align: center;
-  justify-items: center;
-  position: fixed;
-  width: 450px;
-  height: 750px;
-  z-index: 1060;
-  font-size: 30px;
-  padding-top: 40px;
-  background-color: rgb(250, 250, 250);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+.mystory,
+.card {
+  font-weight: 200 !important;
 }
 
-.howToModal {
-  text-align: center;
-  justify-items: center;
-  position: fixed;
-  width: 600px;
-  height: 450px;
-  z-index: 1060;
-  font-size: 30px;
-  padding-top: 40px;
-  background-color: rgb(250, 250, 250);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  color: rgb(65, 65, 65);
-  font-size: 24px;
+.card {
+  display: flex;
+  flex-direction: row;
 }
 
-.cardLayout {
-  /* display: flex;
-    flex-direction: row-reverse;
-    align-items: center; */
-
-  width: 90%;
-  max-width: 260px;
-  height: 300px;
-}
-
-#timeScore {
-  height: 80px;
-  width: 150px;
-  border: 0;
+.cardcard {
   margin: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  /* border: 0px; */
+  /* border-radius: 10px; */
+  transition-duration: 0.2s;
 }
 
-.startHow {
-  display: flex;
-  flex-direction: column;
+.cardcard:hover {
+  /* border: 100px; */
+  /* outline: 1px ridge white; */
+  /* border-color: white; */
+  scale: 101%;
+  /* box-shadow: 0px 0px 8px 2px  rgb(85, 162, 250); */
+  box-shadow: 0px 0px 8px 2px rgb(47, 60, 89);
 }
 
-.swipe {
-  position: absolute;
-  translate: -50%;
-  overflow: hidden;
+.cardcard:hover .employer {
+  color: rgb(85, 162, 250) !important;
 }
 
-@media (max-width: 450px) {
-  #card {
-    width: 80vw;
-    height: 60vh;
-  }
-  h1 {
-    font-size: 5em;
-    padding-top: 2vh;
-  }
-  h2 {
-    font-size: 2em;
-  }
-  h3 {
-    font-size: 1.5em;
-  }
-  .modal {
-    width: 90vw;
-    height: 75vh;
-  }
-  .howToModal {
-    width: 80vw;
-    height: 70vh;
-    padding: 20px;
-  }
-  .howToModal p {
-    font-size: 0.85em;
-  }
+.era {
+  flex: 1;
+}
+
+.detail {
+  flex: 3;
 }

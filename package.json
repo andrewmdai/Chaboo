@@ -1,5 +1,5 @@
 {
-  "name": "undrawable",
+  "name": "andrewmdai",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
@@ -17,19 +17,14 @@
   },
   "dependencies": {
     "@react-spring/web": "^9.5.5",
-    "axios": "^1.4.0",
-    "concurrently": "^8.0.1",
+    "antd": "^5.9.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "jest-environment-jsdom": "^29.5.0",
-    "mongodb": "^5.5.0",
-    "mongoose": "^7.2.0",
     "node": "^20.2.0",
     "nodemon": "^2.0.22",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-tinder-card": "^1.6.2"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.8",

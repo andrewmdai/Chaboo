@@ -6,9 +6,11 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 const Game = () => {
-  const [timeLimit, setTimeLimit] = useState(2);
+  const [timeLimit, setTimeLimit] = useState(60);
   const [score, setScore] = useState(0);
   const [counter, setCounter] = useState(timeLimit);
   const [gameOver, setGameOver] = useState(false);
@@ -72,6 +74,15 @@ const Game = () => {
       gg();
     }
   }, [timerStarted, counter]);
+
+  // const handleChange = (
+  //   event: React.MouseEvent<HTMLElement>,
+  //   newTimeLimit: string,
+  // ) => {
+  //   setTimeLimit(Number(newTimeLimit));
+  //   setCounter(timeLimit);
+  //   console.log(timeLimit, counter)
+  // };
 
   return (
     <div className='game'>
@@ -196,7 +207,21 @@ const Game = () => {
         <Card className='modal' sx={{ borderRadius: '15px' }}>
           <CardContent>
             <p>Settings</p>
-            <p>Time Limit:</p>
+            <div style={{ display: 'flex', justifyContent: 'center'}}>
+              {' '}
+              <p>Time Limit:</p>
+              <ToggleButtonGroup
+                value={String(timeLimit)}
+                exclusive
+                onChange={handleChange}
+                aria-label='Time Limit'
+              >
+                <ToggleButton value='30'>30</ToggleButton>
+                <ToggleButton value='60'>60</ToggleButton>
+                <ToggleButton value='90'>90</ToggleButton>
+                <ToggleButton value='120'>120</ToggleButton>
+              </ToggleButtonGroup>
+            </div>
           </CardContent>
           <CardActions style={{ justifyContent: 'center' }}>
             <BasicButton

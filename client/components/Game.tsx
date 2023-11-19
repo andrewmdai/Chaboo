@@ -8,6 +8,7 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Zoom from '@mui/material/Zoom';
 
 const Game = () => {
   const [timeLimit, setTimeLimit] = useState(60);
@@ -156,83 +157,89 @@ const Game = () => {
 
       {/* Game Over Interface */}
       {gameOver && (
-        <Card
-          className='modal'
-          variant='outlined'
-          sx={{ borderRadius: '15px' }}
-        >
-          <div className='modalContent'>
-            <h2>Time's Up!</h2>
-            <h2>Score: {score}</h2>
-            <BasicButton
-              id='again'
-              onClick={() => {
-                setGameOver(false);
-                setCounter(timeLimit);
-                setScore(0);
-                setTimerStarted(true);
-                setGameStarted(true);
-                fetchAllWords();
-              }}
-            >
-              again!
-            </BasicButton>
-          </div>
-        </Card>
+        <Zoom in={gameOver}>
+          <Card
+            className='modal'
+            variant='outlined'
+            sx={{ borderRadius: '15px' }}
+          >
+            <div className='modalContent'>
+              <h2>Time's Up!</h2>
+              <h2>Score: {score}</h2>
+              <BasicButton
+                id='again'
+                onClick={() => {
+                  setGameOver(false);
+                  setCounter(timeLimit);
+                  setScore(0);
+                  setTimerStarted(true);
+                  setGameStarted(true);
+                  fetchAllWords();
+                }}
+              >
+                again!
+              </BasicButton>
+            </div>
+          </Card>
+        </Zoom>
       )}
       {/* How to Play Interface */}
       {howTo && (
-        <Card
-          className='modal'
-          variant='outlined'
-          sx={{ borderRadius: '15px' }}
-        >
-          <CardContent>
-            <p>Act out the word on the top of the card</p>
-            <p>You are not allowed to act out any actions in red</p>
-            <p>Swipe right if your team guesses correctly</p>
-            <p>Swipe left if you want to pass the current clue</p>
-            <p>Try to get your team to guess as many clues as possible!</p>
-          </CardContent>
-          <CardActions style={{ justifyContent: 'center' }}>
-            <BasicButton id='howToClose' onClick={() => setHowTo(false)}>
-              close
-            </BasicButton>
-          </CardActions>
-        </Card>
+        <Zoom in={howTo}>
+          <Card
+            className='modal'
+            variant='outlined'
+            sx={{ borderRadius: '15px' }}
+          >
+            <CardContent>
+              <p>Act out the word on the top of the card.</p>
+              <p>You are not allowed to act out any actions in red.</p>
+              <p>Swipe right if your team guesses correctly.</p>
+              <p>Swipe left if you want to pass the current clue.</p>
+              <p>Try to get your team to guess as many clues as possible!</p>
+            </CardContent>
+            <CardActions style={{ justifyContent: 'center' }}>
+              <BasicButton id='howToClose' onClick={() => setHowTo(false)}>
+                close
+              </BasicButton>
+            </CardActions>
+          </Card>
+        </Zoom>
       )}
 
       {/* Settings Interface */}
       {/* {settings && (
-        <Card className='modal' sx={{ borderRadius: '15px' }}>
-          <CardContent>
-            <p>Settings</p>
-            <div style={{ display: 'flex', justifyContent: 'center'}}>
-              {' '}
-              <p>Time Limit:</p>
-              <ToggleButtonGroup
-                value={String(timeLimit)}
-                exclusive
-                onChange={handleChange}
-                aria-label='Time Limit'
+        <Zoom in={settings}>
+          <Card className='modal' sx={{ borderRadius: '15px' }}>
+            <CardContent>
+              <p>Settings</p>
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                {' '}
+                <p>Time Limit:</p>
+                <ToggleButtonGroup
+                  value={String(timeLimit)}
+                  exclusive
+                  onChange={handleChange}
+                  aria-label='Time Limit'
+                >
+                  <ToggleButton value='30'>30</ToggleButton>
+                  <ToggleButton value='60'>60</ToggleButton>
+                  <ToggleButton value='90'>90</ToggleButton>
+                  <ToggleButton value='120'>120</ToggleButton>
+                </ToggleButtonGroup>
+              </div>
+            </CardContent>
+            <CardActions style={{ justifyContent: 'center' }}>
+              <BasicButton
+                size='small'
+                id='howToClose'
+                onClick={() => setSettings(false)}
               >
-                <ToggleButton value='30'>30</ToggleButton>
-                <ToggleButton value='60'>60</ToggleButton>
-                <ToggleButton value='90'>90</ToggleButton>
-                <ToggleButton value='120'>120</ToggleButton>
-              </ToggleButtonGroup>
-            </div>
-          </CardContent>
-          <CardActions style={{ justifyContent: 'center' }}>
-            <BasicButton
-              size='small'
-              id='howToClose'
-              onClick={() => setSettings(false)}
-            >
-              close
-            </BasicButton>
-          </CardActions>
-        </Card>
+                close
+              </BasicButton>
+            </CardActions>
+          </Card>
+        </Zoom>
       )} */}
     </div>
   );

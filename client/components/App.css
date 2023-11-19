@@ -38,16 +38,19 @@ h1 {
   font-weight: 500;
   margin: 0;
   padding-top: 5vh;
+  cursor: default;
 }
 
 h2 {
   padding-top: 0.5em;
   font-size: 5vmin;
+  cursor: default;
 }
 
 h3 {
   font-size: 3vmin;
   color: rgb(255, 0, 0);
+  cursor: default;
 }
 
 .game {
@@ -67,6 +70,7 @@ h3 {
   color: white;
   font-size: 3dvh;
   margin: 0;
+  cursor: default;
 }
 
 #start,
@@ -78,7 +82,7 @@ h3 {
   color: white;
   height: 7vh;
   width: 14vw;
-  border-radius: 10px;
+  border-radius: 30px;
   margin: 30px;
   /* transition-duration: 0.5s; */
 }

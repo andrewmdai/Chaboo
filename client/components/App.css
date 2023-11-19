@@ -38,16 +38,19 @@ h1 {
   font-weight: 500;
   margin: 0;
   padding-top: 5vh;
+  cursor: default;
 }
 
 h2 {
   padding-top: 0.5em;
   font-size: 5vmin;
+  cursor: default;
 }
 
 h3 {
   font-size: 3vmin;
   color: rgb(255, 0, 0);
+  cursor: default;
 }
 
 .game {
@@ -67,6 +70,7 @@ h3 {
   color: white;
   font-size: 3dvh;
   margin: 0;
+  cursor: default;
 }
 
 #start,
@@ -78,8 +82,7 @@ h3 {
   color: white;
   height: 7vh;
   width: 14vw;
-  /* border: 0; */
-  border-radius: 10px;
+  border-radius: 30px;
   margin: 30px;
   /* transition-duration: 0.5s; */
 }
@@ -130,21 +133,6 @@ h3 {
   justify-content: center;
 }
 
-/* .modal {
-  text-align: center;
-  justify-items: center;
-  position: fixed;
-  width: 450px;
-  height: 750px;
-  z-index: 1060;
-  font-size: 30px;
-  padding-top: 40px;
-  background-color: rgb(250, 250, 250);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-} */
-
 .modal {
   text-align: center;
   justify-items: center;
@@ -152,7 +140,6 @@ h3 {
   width: 40vw;
   height: 50vh;
   z-index: 1060;
-  /* font-size: 30px; */
   margin-top: 17.5vh;
   padding: 3dvh;
   background-color: rgb(250, 250, 250);
@@ -168,10 +155,6 @@ h3 {
 }
 
 .cardLayout {
-  /* display: flex;
-    flex-direction: row-reverse;
-    align-items: center; */
-
   width: 90%;
   max-width: 260px;
   height: 300px;
@@ -201,20 +184,6 @@ h3 {
 }
 
 @media (max-width: 450px) {
-  #card {
-    width: 80vw;
-    height: 60vh;
-  }
-  #start,
-  #howto,
-  #howToClose,
-  #again {
-    font-size: 8vmin;
-    height: 10vh;
-    width: 50vw;
-    border-radius: 10px;
-    margin: 30px;
-  }
   h1 {
     font-size: 7em;
     padding-top: 3vh;
@@ -239,5 +208,20 @@ h3 {
   }
   .swipe {
     translate: -12.5%;
+  }
+
+  #card {
+    width: 80vw;
+    height: 60vh;
+  }
+  #start,
+  #howto,
+  #howToClose,
+  #again {
+    font-size: 8vmin;
+    height: 10vh;
+    width: 50vw;
+    border-radius: 10px;
+    margin: 30px;
   }
 }

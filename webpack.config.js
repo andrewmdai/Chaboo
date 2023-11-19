@@ -6,7 +6,7 @@ module.exports = {
   entry: './client/index.tsx',
   mode: "production",
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
   },
 
@@ -61,6 +61,14 @@ module.exports = {
     proxy: {
       '/': {
         target: 'http://localhost:3000/',
+      },
+      '/api': {
+        target: 'http://localhost:3000', // Replace this with the backend server URL
+        secure: false, // Set to false if your backend server doesn't have HTTPS
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '', // Rewrite the path to remove '/api' before sending the request
+        },
       },
     },
   },
